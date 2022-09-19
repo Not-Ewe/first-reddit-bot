@@ -13,23 +13,16 @@ const client = new Snoowrap({
 	password: 'remember1'
 });
 
-
-// Configure options for stream: subreddit & results per query
-const streamOpts = {
-    subreddit: 'testingground4bots',
-    results: 25
-};
-
 const BOT_START = Date.now() / 1000;
 
 //Keyword that bot searches for
 const canSummon = (msg) => {
-    return msg && msg.toLowerCase().includes('poo');
+    return msg && msg.toLowerCase().split(" ").includes('poo');
 };
 
 // Create a Snoostorm CommentStream with the specified options
 const comments = new CommentStream(client, { 
-    subreddit: "testingground4bots", 
+    subreddit: "testingground4bots", //choose subreddit here
     limit: 10,
     pollTime: 10000});
 
